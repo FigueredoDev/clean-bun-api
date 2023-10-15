@@ -17,4 +17,20 @@ describe('SignupController', () => {
     expect(httpResponse.statusCode).toBe(400)
     expect(httpResponse.body).toEqual(new Error('Name is required'))
   })
+
+  it('should return 400 if no email is provided', () => {
+    const sut = new SignupController()
+    const httpRequest = {
+      body: {
+        name: 'some-name',
+        password: 'some-password',
+        passwordConfirmation: 'some-password'
+      }
+    }
+
+    const httpResponse = sut.handle(httpRequest)
+
+    expect(httpResponse.statusCode).toBe(400)
+    expect(httpResponse.body).toEqual(new Error('Email is required'))
+  })
 })
