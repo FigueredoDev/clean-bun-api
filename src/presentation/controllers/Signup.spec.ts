@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'bun:test'
 import { SignupController } from './Signup'
+import { MissingParamError } from '../errors/MissingParamError'
 
 describe('SignupController', () => {
   it('should return 400 if no name is provided', () => {
@@ -15,7 +16,7 @@ describe('SignupController', () => {
     const httpResponse = sut.handle(httpRequest)
 
     expect(httpResponse.statusCode).toBe(400)
-    expect(httpResponse.body).toEqual(new Error('Name is required'))
+    expect(httpResponse.body).toEqual(new MissingParamError('name'))
   })
 
   it('should return 400 if no email is provided', () => {
@@ -31,6 +32,6 @@ describe('SignupController', () => {
     const httpResponse = sut.handle(httpRequest)
 
     expect(httpResponse.statusCode).toBe(400)
-    expect(httpResponse.body).toEqual(new Error('Email is required'))
+    expect(httpResponse.body).toEqual(new MissingParamError('email'))
   })
 })
