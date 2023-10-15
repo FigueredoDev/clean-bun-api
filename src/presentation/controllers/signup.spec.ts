@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'bun:test'
-import { SignupController } from './Signup'
-import { MissingParamError } from '../errors/MissingParamError'
+import { SignupController } from './signup'
+import { MissingParamError } from '../errors/missingParamError'
 
 describe('SignupController', () => {
   it('should return 400 if no name is provided', () => {
