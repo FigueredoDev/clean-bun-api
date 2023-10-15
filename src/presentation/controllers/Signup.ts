@@ -1,5 +1,7 @@
+import { type HttpResponse, type HttpRequest } from '../protocols/http'
+
 export class SignupController {
-  handle(httpRequest: any): any {
+  handle(httpRequest: HttpRequest): HttpResponse {
     if (!httpRequest.body.name) {
       return {
         statusCode: 400,
@@ -12,6 +14,11 @@ export class SignupController {
         statusCode: 400,
         body: new Error('Email is required')
       }
+    }
+
+    return {
+      statusCode: 200,
+      body: {}
     }
   }
 }
