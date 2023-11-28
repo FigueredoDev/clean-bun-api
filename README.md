@@ -1,5 +1,7 @@
 # clean-bun-api
 
+this project was created to my studies in clean architecture and Test Driven Development(TDD)
+
 To install dependencies:
 
 ```bash
